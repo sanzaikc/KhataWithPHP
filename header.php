@@ -25,6 +25,8 @@ if (!isset($_SESSION['userId'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <script src="https://kit.fontawesome.com/d6dae3ac15.js" crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -50,9 +52,9 @@ if (!isset($_SESSION['userId'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#e3f2fd">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Khata</a>
+            <a class="navbar-brand text-info" href="index.php" style="font-size:1.5rem">Khata</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,19 +77,20 @@ if (!isset($_SESSION['userId'])) {
                         <a class="nav-link" href="index.php?tab=dashboard">Dashboard</a>
                     </li>
                     <li class=" nav-item">
-                        <a class="nav-link " href="index.php?tab=mycustomers">My
+                        <a class="nav-link " href="index.php?tab=myDues">My
                             Dues</a>
                     </li>
                 </ul>
                 <?php endif ?>
 
                 <ul class=" navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item mt-2">
                         <img src="images/avatar.png" alt="Avatar" class="avatar mr-2">
-                        <span class="text-monospace"><?php echo $user['fname'] . " " . $user['lname']; ?></span>
-                        <a href="includes/logout.php">
-                            <button class="btn btn-sm btn-outline-danger ml-4">Logout</button>
-                        </a>
+                        <?php echo $user['fname'] . " " . $user['lname']; ?>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link text-info ml-4" href="includes/logout.php">Logout<i
+                                class="fas fa-sign-out-alt ml-2"></i></a>
                     </li>
                 </ul>
             </div>

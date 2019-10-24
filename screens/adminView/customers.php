@@ -1,9 +1,10 @@
 <?php $_SESSION['navlink'] = null; ?>
 <div class="container">
     <div class="row mt-4">
-        <div class="col-lg-3 ">
-            <h2><i class="fa fa-users"></i> My Customers</h2>
+        <div class="col-lg-4 ">
+            <h2><i class="fa fa-users text-info"></i> My Customers</h2>
         </div>
+        <hr>
         <div class="col-lg-2 ml-auto">
             <button type="button" class="btn btn-outline-primary btn-block" data-toggle="modal"
                 data-target="#exampleModal" data-whatever="@mdo">Add New Customer</button>
@@ -72,8 +73,6 @@
                 <td>
                     <a href='index.php?tab=itemDetail&id=<?php echo htmlentities($id) ?>'
                         class='btn btn-outline-success btn-sm'>View Detail</a>
-                    <!-- <a href='itemDetailView.php?id=<?php echo htmlentities($id) ?>'
-                        class='btn btn-outline-success btn-sm'>View Detail</a> -->
                     <a href='includes/deleteCustomer.php?id=<?php echo htmlentities($id) ?>'
                         class='btn btn-outline-danger btn-sm'>Delete</button>
                 </td>

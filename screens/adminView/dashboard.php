@@ -1,7 +1,8 @@
+<?php $_SESSION['navlink'] = null; ?>
 <div class="container">
     <div class="row mt-4">
         <div class="col-lg-3 ">
-            <h2><i class="fa fa-dashboard"></i> DashBoard</h2>
+            <h2><i class="fas fa-tachometer-alt"></i> DashBoard</h2>
         </div>
     </div>
     <hr>
@@ -37,7 +38,7 @@
                     ?>
                     <h1 class="display-3  font-weight-bold">
                         <span class="text-success">
-                            <i class="fa fa-money"></i>
+                            <i class="fas fa-money-bill-wave"></i>
                             <?php echo htmlentities($count); ?>
                         </span>
                     </h1>
@@ -57,7 +58,7 @@
                     ?>
                     <h1 class="display-3  font-weight-bold">
                         <span class="text-warning">
-                            <i class="fa fa-shopping-basket"></i>
+                            <i class="fas fa-box-open"></i>
                             <?php echo htmlentities($count); ?>
                         </span>
                     </h1>
