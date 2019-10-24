@@ -34,9 +34,62 @@ if (!isset($_SESSION['userId'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script src="https://use.fontawesome.com/c0cc80b7cc.js"></script>
 
     <link rel=" stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style2.css">
     <title>Khata</title>
+
+    <style>
+    .avatar {
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    </style>
 </head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Khata</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <?php if ($_SESSION['isAdmin']) : ?>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?tab=dashboard">Dashboard</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link " href="index.php?tab=mycustomers">My
+                            Customers</a>
+                    </li>
+                </ul>
+                <?php endif ?>
+                <?php if (!$_SESSION['isAdmin']) : ?>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?tab=dashboard">Dashboard</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link " href="index.php?tab=mycustomers">My
+                            Dues</a>
+                    </li>
+                </ul>
+                <?php endif ?>
+
+                <ul class=" navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <img src="images/avatar.png" alt="Avatar" class="avatar mr-2">
+                        <span class="text-monospace"><?php echo $user['fname'] . " " . $user['lname']; ?></span>
+                        <a href="includes/logout.php">
+                            <button class="btn btn-sm btn-outline-danger ml-4">Logout</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

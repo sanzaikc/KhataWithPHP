@@ -46,7 +46,7 @@ if (!isset($_SESSION['userId'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
         <div class="container">
-            <a class="navbar-brand" href="">Khata</a>
+            <a class="navbar-brand" href="../.././index.php">Khata</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,7 +56,7 @@ if (!isset($_SESSION['userId'])) {
                         <a class="nav-link " href="../.././index.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="myDues.php">My Dues</a>
+                        <a class="nav-link " href="#">My Dues</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">

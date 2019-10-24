@@ -10,6 +10,6 @@ if (isset($_GET['id'], $_GET['cid'])) {
     $result = $stmt->execute();
     if ($result) {
         $_SESSION['successMsg'] = "Item deleted!";
-        header('Location:../screens/adminView/itemDetailView.php?id=' . $cid);
+        header('location:../index.php?tab=itemDetail&id=' . $cid);
     }
 }

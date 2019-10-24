@@ -1,5 +1,4 @@
-<?php
-function ErrorMessage()
+<?php function ErrorMessage()
 {
     if (isset($_SESSION['errorMsg'])) {
         $output = "<div class=\"alert alert-danger\">";

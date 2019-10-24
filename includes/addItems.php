@@ -14,6 +14,6 @@ if (isset($_POST['itemName'], $_POST['itemPrice'], $_POST['id'])) {
 
     if ($result) {
         $_SESSION['successMsg'] = "Item Added";
-        header('Location:../screens/adminView/itemDetailView.php?id=' . $cid);
+        header('location:../index.php?tab=itemDetail&id=' . $cid);
     }
 }

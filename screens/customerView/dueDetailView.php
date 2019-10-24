@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
         <div class="container">
-            <a class="navbar-brand" href="">Khata</a>
+            <a class="navbar-brand" href="../.././index.php">Khata</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>

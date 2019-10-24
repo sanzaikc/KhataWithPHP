@@ -38,11 +38,11 @@ if (isset($_POST['userName'])) {
                 $result = $stmt->execute();
                 if ($result) {
                     $_SESSION['successMsg'] = "Customer " . $fname . " " . $lname . " successfully added!";
-                    header('Location:../screens/adminView/customers.php');
+                    header('location:../index.php?tab=mycustomers');
                 }
             } else {
                 $_SESSION['errorMsg'] = "Customer " . $fname . " " . $lname . " already exists!";
-                header('Location:../screens/adminView/customers.php');
+                header('location:../index.php?tab=mycustomers');
             }
         }
     }

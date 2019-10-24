@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['navlink'] = "dashboard";
+
 if (isset($_POST['userName'], $_POST['password'])) {
     include 'database.php';
 
@@ -11,6 +13,7 @@ if (isset($_POST['userName'], $_POST['password'])) {
     if ($count) {
         $fetch = mysqli_fetch_assoc($result);
         $_SESSION['userId'] = $fetch['userId'];
+        $_SESSION['isAdmin'] = $fetch['isAdmin'];
         header('Location:../index.php');
     } else {
         header('Location:../login.php?errorMsg=Invalid Username or Password!');

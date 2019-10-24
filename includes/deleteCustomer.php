@@ -8,6 +8,7 @@ if (isset($_GET['id']) && $_GET['id']) {
     $result = $stmt->execute();
     if ($result) {
         $_SESSION['successMsg'] = "Customer deleted!";
-        header('Location:../screens/adminView/customers.php');
+        $_SESSION['navlink'] = "mycustomers";
+        header('location:../index.php?tab=mycustomers');
     }
 }

@@ -1,7 +1,13 @@
 <?php
 include_once 'header.php';
-require_once 'includes/sessionVariables.php';
-$user['isAdmin'] ? include_once 'screens/adminView/dashboard.php' : include_once 'screens/customerView/customerDashboard.php';
+include_once 'includes/sessionVariables.php';
+
+if (isset($_GET['tab'])) {
+    $tabName = $_GET['tab'];
+    $_SESSION['navlink'] = $tabName;
+}
+
+$user['isAdmin'] ? include_once 'screens/adminView/switchAdminTab.php' : include_once 'screens/customerView/switchCustomerTab.php';
 ?>
 </body>
 

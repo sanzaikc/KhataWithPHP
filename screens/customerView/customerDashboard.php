@@ -16,7 +16,7 @@ $customerOf = $row['customerOf'];
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link " href="screens/customerView/dashboard.php">Dashboard</a>
+                        <a class="nav-link " href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="screens/customerView/myDues.php">My Dues</a>
