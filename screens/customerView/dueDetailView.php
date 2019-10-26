@@ -4,7 +4,7 @@ $_SESSION['customerOf'];
 ?>
 <div class="container">
     <div class="row mt-4 mb-3">
-        <div class="col-lg-6 ">
+        <div class="col-lg-12 ">
             <h2>
                 <?php
                 $sql = "SELECT `fname` FROM `users` WHERE `userId` = '$customerOf'";
@@ -12,7 +12,8 @@ $_SESSION['customerOf'];
                 $row = $result->fetch_assoc();
                 $name = $row['fname'];
                 ?>
-                <?php echo "Dues from " . htmlentities($name); ?> ko Pasal
+                <?php echo "Dues from " . htmlentities($name); ?>'s Shop
+            </h2>
         </div>
     </div>
     <hr>

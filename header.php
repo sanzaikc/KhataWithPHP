@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
-    header('Location:login.php');
+    header('Location:loginAndSignUp.php');
 } else {
     include 'includes/database.php';
     $userId = $_SESSION['userId'];
@@ -66,8 +66,7 @@ if (!isset($_SESSION['userId'])) {
                         <a class="nav-link" href="index.php?tab=dashboard">Dashboard</a>
                     </li>
                     <li class=" nav-item">
-                        <a class="nav-link " href="index.php?tab=mycustomers">My
-                            Customers</a>
+                        <a class="nav-link " href="index.php?tab=mycustomers">My Customers</a>
                     </li>
                 </ul>
                 <?php endif ?>

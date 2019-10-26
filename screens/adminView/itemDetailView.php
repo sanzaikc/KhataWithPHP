@@ -96,7 +96,7 @@ $_SESSION['customerId'] = null;
                 <td><?php echo "Rs. " . htmlentities($price); ?></td>
                 <td>
                     <a href='includes/deleteItem.php?id=<?php echo $itemId ?>&cid=<?php echo $cid ?>'
-                        class='btn btn-outline-info btn-sm'>Paid</button>
+                        class='btn btn-outline-danger btn-sm'>Delete</button>
                 </td>
             </tr>
             <?php }
@@ -115,7 +115,7 @@ $_SESSION['customerId'] = null;
                     $row = $result->fetch_assoc();
                     $sum = $row['value_sum'];
 
-                    if ($sum > 0) {
+                    if ($sum >= 0) {
                         $sql = "UPDATE `customers` SET `dueAmount` ='$sum' WHERE `customerId`= '$cid'";
                         $stmt = $connection->prepare($sql);
                         $stmt->execute();

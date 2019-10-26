@@ -8,7 +8,7 @@
     <hr>
     <div class="row mt-4">
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-3 mb-5 bg-white">
+            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT COUNT(*) AS total_customers FROM `customers` WHERE `customerOf` = '$userId'";
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-3 mb-5 bg-white">
+            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT SUM(`dueAmount`) AS total_amount FROM `customers` WHERE `customerOf` = '$userId'";
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-3 mb-5 bg-white">
+            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT COUNT(*) AS total_items FROM `items` INNER JOIN `customers` ON `items`.`customerId`= `customers`.`customerId`WHERE `customers`.`customerOf` = '$userId'";
@@ -72,7 +72,7 @@
     <div class="row mt-4">
         <div class="col-lg-12">
             <h2>Recent Sales Activities</h2>
-            <table class="table table-striped table-hover shadow p-3 mb-5 bg-white mt-4">
+            <table class="table table-striped table-hover shadow p-3 mb-3 bg-white mt-4">
                 <thead class="bg-light">
                     <th>#</th>
                     <th>Customer Name</th>
@@ -87,13 +87,15 @@
                     $sql .= "WHERE `customers`.`customerOf` = '$userId' ORDER BY `items`.`itemId` DESC LIMIT 0,6";
                     $result = $connection->query($sql);
                     $index = 0;
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $name = $row['fname'] . " " . $row['lname'];
-                        $date = $row['date'];
-                        $itemName = $row['itemName'];
-                        $price = $row['price'];
-                        $index++;
-                        ?>
+                    if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $name = $row['fname'] . " " . $row['lname'];
+                            $date = $row['date'];
+                            $itemName = $row['itemName'];
+                            $price = $row['price'];
+                            $index++;
+                            $notice = "";
+                            ?>
                     <tr>
                         <td><?php echo htmlentities($index) . "."; ?></td>
                         <td><?php echo htmlentities($name); ?></td>
@@ -101,9 +103,13 @@
                         <td><?php echo htmlentities($itemName); ?></td>
                         <td><?php echo "Rs." . htmlentities($price); ?></td>
                     </tr>
-                    <?php } ?>
+                    <?php }
+                    } else {
+                        $notice = "Nothing bought by customer in credit!";
+                    } ?>
                 </tbody>
             </table>
+            <h3 class="text-center"><?php echo $notice; ?></h3>
         </div>
     </div>
 </div>

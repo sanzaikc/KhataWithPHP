@@ -2,11 +2,11 @@
 session_start();
 $_SESSION['navlink'] = "dashboard";
 
-if (isset($_POST['userName'], $_POST['password'])) {
+if (isset($_POST['userName'], $_POST['userPassword'])) {
     include 'database.php';
 
     $uname = $_POST['userName'];
-    $pw = $_POST['password'];
+    $pw = $_POST['userPassword'];
     $sql = "SELECT * FROM `users` WHERE `username`='$uname' AND `password` ='$pw' ";
     $result = mysqli_query($connection, $sql);
     $count = mysqli_num_rows($result);
@@ -16,6 +16,7 @@ if (isset($_POST['userName'], $_POST['password'])) {
         $_SESSION['isAdmin'] = $fetch['isAdmin'];
         header('Location:../index.php');
     } else {
-        header('Location:../login.php?errorMsg=Invalid Username or Password!');
+        $_SESSION['errorMsg'] = "Invalid User Name Or Password";
+        header('Location:../loginAndSignup.php');
     }
 }

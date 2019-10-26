@@ -40,7 +40,7 @@
     echo  ErrorMessage();
     echo SuccessMessage();
     ?>
-    <table class="table table-striped table-hover shadow p-3 mb-5 bg-white mt-4">
+    <table class="table table-striped table-hover shadow p-3 mb-3 bg-white mt-4">
         <thead class="bg-light">
             <tr>
                 <th>#</th>
