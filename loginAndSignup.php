@@ -16,12 +16,11 @@ if (isset($_SESSION['userId'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios/50/000000/circled-k.png" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Economica|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/d6dae3ac15.js" crossorigin="anonymous"></script>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -31,12 +30,21 @@ if (isset($_SESSION['userId'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-
-    <link rel="stylesheet" href="css/styles.css">
     <title>Khata</title>
     <style>
-    .card {
-        position: relative;
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .navbar-brand,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Economica', sans-serif;
+
     }
 
     .or {
@@ -45,7 +53,7 @@ if (isset($_SESSION['userId'])) {
         padding: 0 1rem;
         font-weight: bold;
         top: 71.5%;
-        left: 45%;
+        left: 43%;
     }
     </style>
 
@@ -54,13 +62,13 @@ if (isset($_SESSION['userId'])) {
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#e3f2fd">
         <div class="container">
-            <a class="navbar-brand text-info" href="" style="font-size:1.5rem">Khata</a>
+            <a class="navbar-brand text-info" href="" style="font-size:2rem">Khata</a>
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="offset-lg-1 col-lg-6">
+            <div class="col-lg-8 d-none d-sm-block">
                 <svg id="logo" width="606" height="154" viewBox="0 0 606 154" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M83.4 150L36.2 88V150H2V9.6H36.2V71.2L83 9.6H123.2L68.8 78.4L125.2 150H83.4Z"
@@ -85,8 +93,8 @@ if (isset($_SESSION['userId'])) {
                 echo  ErrorMessage();
                 echo SuccessMessage();
                 ?>
-                <div class="card rounded-lg border-0 shadow p-4 mt-5 bg-white">
-                    <h2 class="card-title  text-center">Login to Khata</h2>
+                <div class="card custom p-4 mt-4">
+                    <h2 class="card-title  text-center">Log into Khata</h2>
                     <div class="card-body">
                         <form action="includes/loginHandler.php" method="post">
                             <input class="form-control mb-2" type="text" name="userName" placeholder="Username"
@@ -97,7 +105,7 @@ if (isset($_SESSION['userId'])) {
                                 <label for="rememberMe"> Remember Me </label>
                                 <input type="checkbox" name="rememberMe" id="rememberMe" disabled />
                             </div>
-                            <input class="btn btn-outline-success btn-block" type="submit" value="Login" id="submit" />
+                            <input class="btn btn-outline-success btn-block" type="submit" value="Log In" id="submit" />
                             <hr />
                             <small class="or">Or</small>
                             <!-- Button trigger modal -->
@@ -107,48 +115,48 @@ if (isset($_SESSION['userId'])) {
                             </button>
                         </form>
                     </div>
+                </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title font-weight-bold" id="exampleModalLabel">
-                                        Sign Up
-                                    </h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="includes/addUser.php" method="post" class="formData">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control mb-2" name="firstName"
-                                                placeholder="First Name" required />
-                                            <input type="text" class="form-control mb-2" name="lastName"
-                                                placeholder="Last Name" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control mb-2" name="newUserName"
-                                                placeholder="Username" required />
-                                            <input type="password" class="form-control mb-2" name="newPassword"
-                                                placeholder="New Password" required />
-                                        </div>
-                                        <div class="form-group ml-2">
-                                            <b>I am a:</b>
-                                            <input type="radio" name="typeOfUser" id="customer" value="0" required>
-                                            <label for="customer">Customer</label>
-                                            <input type="radio" name="typeOfUser" id="shopOwner" value="1" required>
-                                            <label for="shopOwner">Shop Owner</label>
-                                        </div>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <input type="submit" class="btn btn-outline-success btn-lg " value="Sign Up"
-                                        id="submit" />
-                                </div>
-                                </form>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title font-weight-bold" id="exampleModalLabel">
+                                    Sign Up
+                                </h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+                            <div class="modal-body">
+                                <form action="includes/addUser.php" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mb-2" name="firstName"
+                                            placeholder="First Name" required />
+                                        <input type="text" class="form-control mb-2" name="lastName"
+                                            placeholder="Last Name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mb-2" name="newUserName"
+                                            placeholder="Username" required />
+                                        <input type="password" class="form-control mb-2" name="newPassword"
+                                            placeholder="New Password" required />
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <b>I am a:</b>
+                                        <input type="radio" name="typeOfUser" id="customer" value="0" required>
+                                        <label for="customer">Customer</label>
+                                        <input type="radio" name="typeOfUser" id="shopOwner" value="1" required>
+                                        <label for="shopOwner">Shop Owner</label>
+                                    </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <input type="submit" class="btn btn-outline-success btn-lg " value="Sign Up"
+                                    id="submit" />
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -157,13 +165,13 @@ if (isset($_SESSION['userId'])) {
         </div>
     </div>
     </form>
+
     <script>
     const logo = document.querySelectorAll('#logo path');
     for (let i = 0; i < logo.length; i++) {
         console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
     }
     </script>
-
 </body>
 
 </html>

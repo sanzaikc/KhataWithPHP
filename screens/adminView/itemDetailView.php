@@ -106,7 +106,7 @@ $_SESSION['customerId'] = null;
             ?>
             <tr class="bg-light">
                 <td colspan="3">
-                    <h5>Total</h5>
+                    Total
                 </td>
                 <td colspan="2">
                     <?php
@@ -121,7 +121,7 @@ $_SESSION['customerId'] = null;
                         $stmt->execute();
                     }
                     ?>
-                    <h5>Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span></h5>
+                    Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span>
                 </td>
             </tr>
         </tbody>

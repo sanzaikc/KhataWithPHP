@@ -17,6 +17,9 @@ $_SESSION['navlink'] = null;
                     $result = $connection->query($sql);
                     $row = $result->fetch_assoc();
                     $count = $row['totalDue'];
+                    if ($count == null) {
+                        $count = "0";
+                    }
                     ?>
                     <h1 class="display-3  font-weight-bold">
                         <span class="text-success">

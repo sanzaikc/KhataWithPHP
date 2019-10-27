@@ -65,10 +65,10 @@
             <tr>
                 <td><?php echo htmlentities($index) . "."; ?></td>
                 <td>
-                    <h6><?php echo htmlentities($name); ?></h6>
+                    <?php echo htmlentities($name); ?>
                 </td>
                 <td>
-                    <h6> Rs. <span class="text-success"><?php echo htmlentities($due) ?></h6></span>
+                    Rs. <span class="text-success"><?php echo htmlentities($due) ?></span>
                 </td>
                 <td>
                     <a href='index.php?tab=itemDetail&id=<?php echo htmlentities($id) ?>'

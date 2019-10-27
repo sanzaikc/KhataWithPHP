@@ -52,7 +52,7 @@ $_SESSION['customerOf'];
             <?php } ?>
             <tr class="bg-light">
                 <td colspan="3">
-                    <h5>Total Due Amount</h5>
+                    Total Due Amount
                 </td>
                 <td>
                     <?php
@@ -63,7 +63,7 @@ $_SESSION['customerOf'];
                     $row = $result->fetch_assoc();
                     $sum = $row['value_sum'];
                     ?>
-                    <h5>Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span></h5>
+                    Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span>
                 </td>
                 <td> <button class="btn btn-outline-success">Pay</button></td>
             </tr>

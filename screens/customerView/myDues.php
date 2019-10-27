@@ -33,22 +33,20 @@
                     <tr>
                         <td><?php echo htmlentities($index) . "."; ?></td>
                         <td>
-                            <h6>
-                                <?php
-                                                $anotherSql = "SELECT * FROM `users` WHERE `userId` = '$customerOf'";
-                                                $newResult = $connection->query($anotherSql);
-                                                $datas = $newResult->fetch_assoc();
-                                                $name = $datas['fname'] . " " . $datas['lname'];
-                                                ?>
-                                <?php echo  htmlentities($name); ?>
-                            </h6>
+                            <?php
+                                            $anotherSql = "SELECT * FROM `users` WHERE `userId` = '$customerOf'";
+                                            $newResult = $connection->query($anotherSql);
+                                            $datas = $newResult->fetch_assoc();
+                                            $name = $datas['fname'] . " " . $datas['lname'];
+                                            ?>
+                            <?php echo  htmlentities($name); ?>
+
                         </td>
                         <td>
-                            <h6> Rs.
-                                <span class="text-success">
-                                    <?php echo htmlentities($due); ?>
-                                </span>
-                            </h6>
+                            Rs.
+                            <span class="text-success">
+                                <?php echo htmlentities($due); ?>
+                            </span>
                         </td>
                         <td>
                             <a href='index.php?tab=dueDetail&customerOf=<?php echo htmlentities($customerOf) ?>'
@@ -57,7 +55,7 @@
                     </tr>
                     <?php }
                     } else {
-                        $notice = "Seems there are no more remaining dues!";
+                        $notice = "Seems you haven't any items in credit!";
                     }
                     ?>
                 </tbody>
