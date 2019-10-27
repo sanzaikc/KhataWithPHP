@@ -66,7 +66,7 @@ if (!isset($_SESSION['userId'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#e3f2fd">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#edf4fa">
         <div class="container">
             <a class="navbar-brand text-info" href="index.php" style="font-size:2rem">Khata</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">

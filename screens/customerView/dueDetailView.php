@@ -17,8 +17,6 @@ $_SESSION['customerOf'];
         </div>
     </div>
     <hr>
-
-    </h2>
     <table class="table table-striped table-hover shadow p-3 mb-5 bg-white mt-4">
         <thead class="bg-light">
             <tr>
@@ -43,7 +41,7 @@ $_SESSION['customerOf'];
                 $index++;
                 ?>
             <tr>
-                <td><?php echo htmlentities($index); ?></td>
+                <td><?php echo  htmlentities($index) . "."; ?></td>
                 <td><?php echo htmlentities($name); ?></td>
                 <td><?php echo htmlentities($date); ?></td>
                 <td>Rs. <span class="text-success"><?php echo htmlentities($price); ?></span></td>
