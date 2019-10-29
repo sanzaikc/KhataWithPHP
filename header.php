@@ -47,7 +47,6 @@ if (!isset($_SESSION['userId'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-
                 <?php if ($_SESSION['isAdmin']) : ?>
                 <ul class="navbar-nav mt-2 mr-auto">
                     <li class="nav-item">
@@ -69,17 +68,22 @@ if (!isset($_SESSION['userId'])) {
                     </li>
                 </ul>
                 <?php endif ?>
-
-                <ul class=" navbar-nav ml-auto">
-                    <li class="nav-item mt-2  mr-4">
-                        <img src="images/genericAvatarIcon.jpg" alt="Avatar" class="avatar">
-                        <?php echo $user['fname'] . " " . $user['lname']; ?>
-                    </li>
-                    <li class="nav-item">
-                        <a class=" nav-link text-info" href="includes/logout.php">Logout<i
+                <div class="dropdown show">
+                    <span class="mr-2 text-info" aria-labelledby=" dropdownMenuLink">
+                        <img src="images/genericAvatarIcon.jpg" alt="Avatar"
+                            class="avatar mr-2"><?php echo $user['fname'] . " " . $user['lname']; ?>
+                    </span>
+                    <a class="dropdown-toggle" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="nav-link dropdown-item" href="#">My Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item nav-link text-danger" href="includes/logout.php">Log out<i
                                 class="fas fa-sign-out-alt ml-2"></i></a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </nav>

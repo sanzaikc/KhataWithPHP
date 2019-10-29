@@ -13,6 +13,7 @@ if (isset($_POST['userName'])) {
 
     if (!$count) {
         $_SESSION['errorMsg'] = "Enter a valid username!";
+        $_SESSION['navlink'] = "mycustomers";
         header('Location:../index.php');
     } else {
         // if username found then fetch the data from users table 

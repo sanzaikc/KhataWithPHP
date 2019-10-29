@@ -40,12 +40,25 @@ h6 {
 .intro {
   animation: slide-left 3s ease forwards;
 }
-.card {
+.nav-item,
+.card,
+.btn,
+tr {
   z-index: 999;
   transition: all 0.2s ease-in-out;
 }
-.card:hover {
+.nav-item:hover {
   transform: scale(1.1);
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.forCardHover:hover {
+  transform: scale(1.1);
+}
+tbody > tr:hover {
+  transform: scale(1.01);
+  background: white;
 }
 .intro {
   animation: slide-left 4s ease forwards;
