@@ -8,7 +8,7 @@
     <hr>
     <div class="row mt-4">
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
+            <div class="card  text-center rounded-lg border-0 shadow p-2 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT COUNT(*) AS total_customers FROM `customers` WHERE `customerOf` = '$userId'";
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
+            <div class="card text-center rounded-lg border-0 shadow p-2 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT SUM(`dueAmount`) AS total_amount FROM `customers` WHERE `customerOf` = '$userId'";
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card text-center rounded-lg border-0 shadow p-4 mb-5 bg-white">
+            <div class="card text-center rounded-lg border-0 shadow p-2 mb-5 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT COUNT(*) AS total_items FROM `items` INNER JOIN `customers` ON `items`.`customerId`= `customers`.`customerId`WHERE `customers`.`customerOf` = '$userId'";

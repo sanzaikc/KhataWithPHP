@@ -16,10 +16,10 @@ if (isset($_SESSION['userId'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios/50/000000/circled-k.png" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Economica|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="https://kit.fontawesome.com/d6dae3ac15.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -31,49 +31,9 @@ if (isset($_SESSION['userId'])) {
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <title>Khata</title>
-    <style>
-    * {
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .navbar-brand,
-    .btn,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Economica', sans-serif;
-
-    }
-
-    .or {
-        position: absolute;
-        background-color: white;
-        padding: 0 1rem;
-        font-weight: bold;
-        top: 70.5%;
-        left: 43%;
-    }
-
-    .intro {
-        position: absolute;
-        padding: 0 1rem;
-        font-weight: bold;
-        top: 70.5%;
-    }
-    </style>
-
 </head>
 
 <body class="bg-light">
-    <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#e3f2fd">
-        <div class="container">
-            <a class="navbar-brand text-info" href="" style="font-size:2rem">Khata</a>
-        </div>
-    </nav> -->
-
     <div class="container">
         <div class="row mt-5 pt-5">
             <div class="col-lg-8 d-none d-sm-block ">

@@ -9,8 +9,8 @@ $_SESSION['navlink'] = null;
     </div>
     <hr>
     <div class="row mt-4">
-        <div class="col-lg-6 mx-auto">
-            <div class="card text-center rounded-lg border-0 shadow p-4 mb-3 bg-white">
+        <div class="col-lg-5 mx-auto">
+            <div class="card text-center rounded-lg border-0 shadow p-2 mb-3 bg-white">
                 <div class="card-body">
                     <?php
                     $sql = "SELECT SUM(`dueAmount`) AS `totalDue` FROM `customers` WHERE `userId` = '$userId'";
@@ -36,7 +36,7 @@ $_SESSION['navlink'] = null;
     <div class="row mt-4">
         <div class="col-lg-12">
             <h2>Recently Bought Items</h2>
-            <table class="table table-striped table-hover shadow p-3 mb-5 bg-white mt-4">
+            <table class="table table-striped table-hover shadow p-3 mb-3 bg-white mt-4">
                 <thead class="bg-light">
                     <th>#</th>
                     <th>From</th>
