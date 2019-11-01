@@ -6,6 +6,10 @@
         </div>
     </div>
     <hr>
+    <?php
+    echo  ErrorMessage();
+    echo SuccessMessage();
+    ?>
     <div class="row mt-4">
         <div class="col-lg-4">
             <div class="card text-center rounded-lg border-0 shadow p-2 mb-5 bg-white forCardHover">

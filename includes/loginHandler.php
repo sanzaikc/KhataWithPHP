@@ -9,8 +9,7 @@ if (isset($_POST['userName'], $_POST['userPassword'])) {
     $pw = $_POST['userPassword'];
     $sql = "SELECT * FROM `users` WHERE `username`='$uname' AND `password` ='$pw' ";
     $result = mysqli_query($connection, $sql);
-    $count = mysqli_num_rows($result);
-    if ($count) {
+    if (mysqli_num_rows($result)) {
         $fetch = mysqli_fetch_assoc($result);
         $_SESSION['userId'] = $fetch['userId'];
         $_SESSION['isAdmin'] = $fetch['isAdmin'];

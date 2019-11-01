@@ -13,5 +13,6 @@ switch ($_SESSION['navlink']) {
         include('itemDetailView.php');
         break;
     default:
+        $_SESSION['errorMsg'] = "Bad Request!";
         include('dashboard.php');
 }

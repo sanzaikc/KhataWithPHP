@@ -13,13 +13,14 @@
                     <tr>
                         <th>#</th>
                         <th>From</th>
+                        <th>Proprietor</th>
                         <th>Due Owned</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM `customers` WHERE `userId` = '$userId'";
+                    $sql = "SELECT * FROM `customers` WHERE `userId` = '$userId' AND `dueAmount`>0";
                     $result = mysqli_query($connection, $sql);
                     $index = 0;
                     if (mysqli_num_rows($result)) {
@@ -37,15 +38,26 @@
                                             $anotherSql = "SELECT * FROM `users` WHERE `userId` = '$customerOf'";
                                             $newResult = $connection->query($anotherSql);
                                             $datas = $newResult->fetch_assoc();
+                                            $shopName = $datas['shopName'];
                                             $name = $datas['fname'] . " " . $datas['lname'];
                                             ?>
-                            <?php echo  htmlentities($name); ?>
+                            <?php echo  htmlentities($shopName); ?>
 
                         </td>
+                        <td><?php echo  htmlentities($name); ?></td>
                         <td>
+                            <?php
+                                            $sql = "SELECT SUM(`price`) AS value_sum FROM `items` INNER JOIN `customers`";
+                                            $sql .= " ON `customers`.`customerId`=`items`.`customerId` ";
+                                            $sql .= "WHERE `customers`.`customerOf`='$customerOf' AND `customers`.`userId` = '$userId'";
+                                            $Result = $connection->query($sql);
+                                            $row = $Result->fetch_assoc();
+                                            $sum = $row['value_sum'];
+                                            ?>
+
                             Rs.
                             <span class="text-success">
-                                <?php echo htmlentities($due); ?>
+                                <span class="text-success"><?php echo htmlentities($sum); ?></span>
                             </span>
                         </td>
                         <td>

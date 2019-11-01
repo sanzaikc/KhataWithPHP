@@ -66,7 +66,7 @@ $_SESSION['navlink'] = null;
                                             $anotherSql = "SELECT * FROM `users` WHERE `userId` = '$customerOf'";
                                             $anotherResult = $connection->query($anotherSql);
                                             $data = mysqli_fetch_assoc($anotherResult);
-                                            $anotherName = $data['fname'] . " " . $data['lname'];
+                                            $anotherName = $data['shopName'];
                                             echo htmlentities($anotherName); ?>
                         </td>
                         <td><?php echo htmlentities($date); ?></td>

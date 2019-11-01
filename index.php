@@ -1,6 +1,6 @@
 <?php
-include_once 'header.php';
 include_once 'includes/sessionVariables.php';
+include_once 'header.php';
 
 if (isset($_GET['tab'])) {
     $tabName = $_GET['tab'];

@@ -34,9 +34,9 @@ if (isset($_SESSION['userId'])) {
 </head>
 
 <body class="bg-light">
-    <div class="container">
-        <div class="row mt-5 pt-5">
-            <div class="col-lg-8 d-none d-sm-block ">
+    <div class="container ">
+        <div class="row mt-5 pt-5 ">
+            <div class="col-lg-8 d-none d-sm-block d-md-block ">
                 <svg id="logo" width="606" height="200" viewBox="0 0 1209 424" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -95,7 +95,7 @@ if (isset($_SESSION['userId'])) {
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header d-flex justify-content-center">
                                 <h4 class="modal-title font-weight-bold" id="exampleModalLabel">
                                     Sign Up
                                 </h4>
@@ -117,15 +117,22 @@ if (isset($_SESSION['userId'])) {
                                         <input type="password" class="form-control mb-2" name="newPassword"
                                             placeholder="New Password" required />
                                     </div>
-                                    <div class="form-group ml-2">
-                                        <b>I am a:</b>
-                                        <input type="radio" name="typeOfUser" id="customer" value="0" required>
-                                        <label for="customer">Customer</label>
-                                        <input type="radio" name="typeOfUser" id="shopOwner" value="1" required>
-                                        <label for="shopOwner">Shop Owner</label>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Sign up as:</label>
+                                            <select class="form-control" name="typeOfUser"
+                                                id="exampleFormControlSelect1" onchange="toggle()" required>
+                                                <option value="1">Shop Owner</option>
+                                                <option value="0">Customer</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="shopName" style="display:block">
+                                            <label for="nameOfShop">Name of the Shop:</label>
+                                            <input type="text" id="nameOfShop" class="form-control" name="shopName">
+                                        </div>
                                     </div>
                             </div>
-                            <div class="modal-footer d-flex justify-content-center">
+                            <div class=" modal-footer d-flex justify-content-center">
                                 <input type="submit" class="btn btn-outline-success btn-lg " value="Sign Up"
                                     id="submit" />
                             </div>
@@ -140,9 +147,17 @@ if (isset($_SESSION['userId'])) {
     </form>
 
     <script>
-    const logo = document.querySelectorAll('#logo path');
-    for (let i = 0; i < logo.length; i++) {
-        console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
+    // const logo = document.querySelectorAll('#logo path');
+    // for (let i = 0; i < logo.length; i++) {
+    //     console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
+    // }
+    function toggle() {
+        var cont = document.getElementById('shopName');
+        if (cont.style.display == 'block') {
+            cont.style.display = 'none';
+        } else {
+            cont.style.display = 'block';
+        }
     }
     </script>
 </body>

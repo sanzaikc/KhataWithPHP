@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
+    // $_SESSION['errorMsg'] = "You need to login first!";
     header('Location:loginAndSignUp.php');
 } else {
     include 'includes/database.php';
@@ -42,7 +43,7 @@ if (!isset($_SESSION['userId'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#edf4fa">
         <div class="container">
-            <a class="navbar-brand text-info" href="index.php" style="font-size:2rem">Khata</a>
+            <a class="navbar-brand text-info" href="index.php?tab=dashboard" style="font-size:2rem">Khata</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>

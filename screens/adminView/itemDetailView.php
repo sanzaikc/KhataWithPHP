@@ -1,7 +1,6 @@
 <?php
 $_SESSION['navlink'] = null;
 $cid = $_SESSION['customerId'];
-$_SESSION['customerId'] = null;
 ?>
 <div class="container">
     <div class="row mt-4">
@@ -19,7 +18,7 @@ $_SESSION['customerId'] = null;
             </a>
         </div>
         <div class="col-lg-8 text-center">
-            <h2 class="">
+            <h2>
                 <?php echo htmlentities($name); ?>
             </h2>
         </div>
@@ -71,7 +70,7 @@ $_SESSION['customerId'] = null;
                 <th>Item Name</th>
                 <th>On Date</th>
                 <th>Price</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead class="bg-light">
         <tbody>
@@ -96,7 +95,9 @@ $_SESSION['customerId'] = null;
                 <td><?php echo "Rs. " . htmlentities($price); ?></td>
                 <td>
                     <a href='includes/deleteItem.php?id=<?php echo $itemId ?>&cid=<?php echo $cid ?>'
-                        class='btn btn-outline-danger btn-sm'>Delete</button>
+                        class='btn btn-outline-danger btn-sm'>Delete</a>
+                    <a href="includes/payment.php?itemId=<?php echo htmlentities($itemId); ?>&remark=Paid by Cash"
+                        class="btn btn-outline-info btn-sm">Paid by Cash</a>
                 </td>
             </tr>
             <?php }

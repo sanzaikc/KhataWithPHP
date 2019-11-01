@@ -1,14 +1,34 @@
 <?php
-session_start();
-include 'database.php';
-if (isset($_GET['id'])) {
-    $cid = $_GET['id'];
-    $sql = "DELETE FROM `customers` WHERE `customerId`=$cid";
-    $stmt = $connection->prepare($sql);
-    $result = $stmt->execute();
-    if ($result) {
-        $_SESSION['successMsg'] = "Customer deleted!";
-        $_SESSION['navlink'] = "mycustomers";
-        header('location:../index.php?tab=mycustomers');
+
+if (isset($_GET['itemId'], $_GET['remark'])) {
+    include 'database.php';
+    $itemId = $_GET['itemId'];
+    $remark = $_GET['remark'];
+    $sql = "SELECT * FROM `items` WHERE `itemId` ='$itemId'";
+    $stmt = $connection->query($sql);
+    if ($stmt) {
+        while ($datas = $stmt->fetch_assoc()) {
+            $id = $datas['itemId'];
+            $cid = $datas['customerId'];
+            $name = $datas['itemName'];
+            $price = $datas['price'];
+        }
+        $insertSql = "INSERT INTO `payment`(`customerId`,`amount`,`remark`) VALUES(?,?,?)";
+        $insertStmt = $connection->prepare($insertSql);
+        $insertStmt->bind_param("sss", $cid, $price, $remark);
+        $result = $insertStmt->execute();
+        if ($result) {
+            $Sql = "DELETE FROM `items` WHERE `itemId`=$id";
+            $Stmt = $connection->prepare($Sql);
+            $Result = $Stmt->execute();
+            $_SESSION['successMsg'] = "Item Paid!";
+            if ($Result) {
+                if ($remark === "Paid") {
+                    header('location:../index.php?tab=dueDetail&id=' . $cid);
+                } else {
+                    header('location:../index.php?tab=itemDetail&id=' . $cid);
+                }
+            }
+        }
     }
 }
