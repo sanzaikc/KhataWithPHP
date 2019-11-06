@@ -8,8 +8,4 @@ if (isset($_GET['tab'])) {
 }
 $user['isAdmin'] ? include_once 'screens/adminView/switchAdminTab.php' : include_once 'screens/customerView/switchCustomerTab.php';
 
-// include_once 'footer.php';
-?>
-</body>
-
-</html>
+include_once 'footer.php';

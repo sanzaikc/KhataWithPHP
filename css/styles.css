@@ -61,7 +61,7 @@ tbody > tr:hover {
   background: white;
 }
 .intro {
-  animation: slide-left 4s ease forwards;
+  animation: slide-left 3s ease forwards;
 }
 #logo {
   position: absolute;
@@ -72,27 +72,52 @@ tbody > tr:hover {
 #logo path:nth-child(1) {
   stroke-dasharray: 1992;
   stroke-dashoffset: 1992;
-  animation: lineAnimation 3.5s ease forwards;
+  animation: lineAnimation 3s ease forwards;
 }
 #logo path:nth-child(2) {
   stroke-dasharray: 1706;
   stroke-dashoffset: 1706;
-  animation: lineAnimation 3.5s ease forwards;
+  animation: lineAnimation 3s ease forwards;
 }
 #logo path:nth-child(3) {
   stroke-dasharray: 1494;
   stroke-dashoffset: 1494;
-  animation: lineAnimation 3.5s ease forwards;
+  animation: lineAnimation 3s ease forwards;
 }
 #logo path:nth-child(4) {
   stroke-dasharray: 1139;
   stroke-dashoffset: 1139;
-  animation: lineAnimation 3.5s ease forwards;
+  animation: lineAnimation 3s ease forwards;
 }
 #logo path:nth-child(5) {
   stroke-dasharray: 1494;
   stroke-dashoffset: 1494;
-  animation: lineAnimation 3.5s ease forwards;
+  animation: lineAnimation 3s ease forwards;
+}
+.social {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0.8);
+}
+.social:hover {
+  transform: scale(1.1);
+}
+#social-fb:hover {
+  color: #3b5998;
+}
+#social-tw:hover {
+  color: #4099ff;
+}
+#social-gp:hover {
+  color: #d34836;
+}
+#social-em:hover {
+  color: #f39c12;
+}
+.footer {
+  animation: appear 3.5s ease forwards;
 }
 
 @keyframes lineAnimation {
@@ -117,5 +142,13 @@ tbody > tr:hover {
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

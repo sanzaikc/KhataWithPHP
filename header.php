@@ -88,3 +88,4 @@ if (!isset($_SESSION['userId'])) {
             </div>
         </div>
     </nav>
+    <div class="container" style="min-height: 470px;">

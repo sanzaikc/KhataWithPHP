@@ -143,6 +143,35 @@ if (isset($_SESSION['userId'])) {
             </div>
             <!-- Login and SignUp Ends here  -->
         </div>
+        <footer class="footer">
+            <div class="row mt-5 ">
+                <div class="col-md-12 py-3">
+                    <div class="  d-flex justify-content-center">
+                        <a class="social" href="https://www.facebook.com/sanzai.kc">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-3x" id="social-fb"> </i>
+                        </a>
+                        <a class="social">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-3x" id="social-tw"> </i>
+                        </a>
+                        <a class="social">
+                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-3x" id="social-gp"> </i>
+                        </a>
+                        <a class="social">
+                            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-3x" id="social-fb"> </i>
+                        </a>
+                        <a class="social">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-3x" id="social-gp"> </i>
+                        </a>
+                        <a class="social">
+                            <i class="fab fa-pinterest fa-lg white-text fa-3x" id="social-gp"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-2">© 2019 Copyright & Designed by:
+                <span class="text-muted"> Sanjay Khatri</span>
+            </div>
+        </footer>
     </div>
     </form>
 
