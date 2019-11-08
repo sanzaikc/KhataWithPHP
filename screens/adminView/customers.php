@@ -41,7 +41,7 @@ echo SuccessMessage();
 ?>
 <table class="table table-striped table-hover shadow p-3 mb-3 bg-white mt-4">
     <thead class="bg-light">
-        <tr>
+        <tr class="table-success">
             <th>#</th>
             <th>Name</th>
             <th>Total Due Amount</th>

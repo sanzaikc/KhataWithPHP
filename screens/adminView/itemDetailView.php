@@ -1,7 +1,13 @@
 <?php
 $_SESSION['navlink'] = null;
 $cid = $_SESSION['customerId'];
+echo $cid;
 ?>
+<script>
+$(function() {
+    $('[data-toggle="popover"]').popover()
+})
+</script>
 <div class="row mt-4">
     <div class="col-lg-2 mr-auto">
         <?php
@@ -19,6 +25,34 @@ $cid = $_SESSION['customerId'];
     <div class="col-lg-8 text-center">
         <h2>
             <?php echo htmlentities($name); ?>
+            <button class="btn btn-outline-success ml-2" tabindex="0" data-toggle="popover" data-trigger="focus"
+                data-placement="bottom" title="Recent transactions" data-html="true" data-content="
+          <div class='list-group list-group-flush'>
+              <?php
+                $sql = "SELECT * FROM `payment` WHERE `customerId` = '$cid' ORDER BY `paymentId` DESC LIMIT 0,5";
+                $result = $connection->query($sql);
+                $index = 0;
+                if (mysqli_num_rows($result)) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $date = $row['date'];
+                        $itemName = $row['itemName'];
+                        $amount = $row['amount'];
+                        $remark = $row['remark'];
+                        $index++;
+                        $notice = "";
+                        ?>
+                        <div class='list-group-item flex-column align-items-start'>
+                            <h6 class='mb-1'><?= $date ?></h6>
+                                <small>Paid for : <?= $itemName ?></small>
+                                <small>Amount : Rs.<?= $amount ?></small>
+                                <small> Remarks : <?= $remark ?></small>
+                        </div>
+                <?php }
+                } else {
+                    $notice = "No Payment Activities done!";
+                } ?>
+                <?php echo htmlentities($notice); ?>
+    </div>"><i class="fas fa-history mr-2"></i> Payment History</button>
         </h2>
     </div>
     <div class="col-lg-2 mr-auto">
@@ -64,7 +98,7 @@ echo SuccessMessage();
 ?>
 <table class="table table-striped table-hover shadow p-3 mb-5 bg-white mt-4">
     <thead class="bg-light">
-        <tr>
+        <tr class="table-info">
             <th>#</th>
             <th>Item Name</th>
             <th>On Date</th>
@@ -114,11 +148,12 @@ echo SuccessMessage();
                 $result = $connection->query($sql);
                 $row = $result->fetch_assoc();
                 $sum = $row['value_sum'];
-
-                if ($sum >= 0) {
+                if ($sum > 0) {
                     $sql = "UPDATE `customers` SET `dueAmount` ='$sum' WHERE `customerId`= '$cid'";
                     $stmt = $connection->prepare($sql);
                     $stmt->execute();
+                } else {
+                    $sum = "0";
                 }
                 ?>
                 Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span>

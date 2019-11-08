@@ -37,17 +37,19 @@ $_SESSION['navlink'] = null;
         <h2>Recently Bought Items</h2>
         <table class="table table-striped table-hover shadow p-3 mb-3 bg-white mt-4 ">
             <thead class="bg-light">
-                <th>#</th>
-                <th>From</th>
-                <th>Date</th>
-                <th>Item Bought</th>
-                <th>Price</th>
+                <tr class="table-info">
+                    <th>#</th>
+                    <th>From</th>
+                    <th>Date</th>
+                    <th>Item Bought</th>
+                    <th>Price</th>
+                </tr>
             </thead>
             <tbody>
                 <?php
                 $sql = " SELECT  `customers`.`customerOf`,`items`.`itemName`, `items`.`price`, `items`.`date`";
                 $sql .= "FROM `customers`INNER JOIN `items` ON `customers`.`customerId` = `items`.`customerId` ";
-                $sql .= "WHERE `customers`.`userId` = '$userId' ORDER BY `items`.`itemId` DESC LIMIT 0,6";
+                $sql .= "WHERE `customers`.`userId` = '$userId' ORDER BY `items`.`itemId` DESC LIMIT 0,10";
                 $result = $connection->query($sql);
                 $index = 0;
                 if (mysqli_num_rows($result)) {

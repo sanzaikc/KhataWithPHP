@@ -30,7 +30,7 @@ echo SuccessMessage();
 ?>
 <table class="table table-striped table-hover shadow p-3 mb-5  mt-4">
     <thead class="bg-light">
-        <tr>
+        <tr class="table-warning">
             <th>#</th>
             <th>Item Name</th>
             <th>Date</th>
@@ -57,7 +57,7 @@ echo SuccessMessage();
             <td><?php echo htmlentities($name); ?></td>
             <td><?php echo htmlentities($date); ?></td>
             <td>Rs. <span class="text-success"><?php echo htmlentities($price); ?></span></td>
-            <td> <a href="includes/payment.php?itemId=<?php echo htmlentities($itemId); ?>&remark=Paid"
+            <td> <a href="includes/payment.php?itemId=<?php echo htmlentities($itemId); ?>&remark=Not Paid by Cash"
                     class="btn btn-outline-success btn-sm">Pay</a>
             </td>
         </tr>
@@ -82,7 +82,8 @@ echo SuccessMessage();
                 ?>
                 Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span>
             </td>
-            <td><a href="" class="btn btn-outline-success disabled">Pay all</a></td>
+            <td><a href="includes/payAll.php?cid=<?php echo htmlentities($cid); ?>&remark=Not Paid by Cash"
+                    class="btn btn-outline-success">Pay all</a></td>
         </tr>
     </tbody>
 </table>

@@ -12,6 +12,9 @@ switch ($_SESSION['navlink']) {
         }
         include('dueDetailView.php');
         break;
+    case "statement":
+        include('statements.php');
+        break;
     default:
         include('dashboard.php');
 }

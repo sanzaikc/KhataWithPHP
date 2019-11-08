@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_GET['itemId'], $_GET['remark'])) {
     include 'database.php';
     $itemId = $_GET['itemId'];
@@ -13,15 +13,15 @@ if (isset($_GET['itemId'], $_GET['remark'])) {
             $name = $datas['itemName'];
             $price = $datas['price'];
         }
-        $insertSql = "INSERT INTO `payment`(`customerId`,`amount`,`remark`) VALUES(?,?,?)";
+        $insertSql = "INSERT INTO `payment`(`customerId`,`itemName`,`amount`,`remark`) VALUES(?,?,?,?)";
         $insertStmt = $connection->prepare($insertSql);
-        $insertStmt->bind_param("sss", $cid, $price, $remark);
+        $insertStmt->bind_param("ssss", $cid, $name, $price, $remark);
         $result = $insertStmt->execute();
         if ($result) {
             $Sql = "DELETE FROM `items` WHERE `itemId`=$id";
             $Stmt = $connection->prepare($Sql);
             $Result = $Stmt->execute();
-            $_SESSION['successMsg'] = "Item Paid!";
+            $_SESSION['successMsg'] = "Successfully Paid for " . $name . "!";
             if ($Result) {
                 if ($remark === "Paid") {
                     header('location:../index.php?tab=dueDetail&id=' . $cid);
