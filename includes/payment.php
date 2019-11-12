@@ -23,7 +23,7 @@ if (isset($_GET['itemId'], $_GET['remark'])) {
             $Result = $Stmt->execute();
             $_SESSION['successMsg'] = "Successfully Paid for " . $name . "!";
             if ($Result) {
-                if ($remark === "Paid") {
+                if ($remark === "Paid with Khalti") {
                     header('location:../index.php?tab=dueDetail&id=' . $cid);
                 } else {
                     header('location:../index.php?tab=itemDetail&id=' . $cid);

@@ -5,6 +5,7 @@ $result = $connection->query($sql);
 $data = $result->fetch_assoc();
 $cid = $data['customerId'];
 ?>
+
 <div class="row mt-4 mb-3">
     <div class="col-lg-2">
         <?php
@@ -57,10 +58,30 @@ echo SuccessMessage();
             <td><?php echo htmlentities($name); ?></td>
             <td><?php echo htmlentities($date); ?></td>
             <td>Rs. <span class="text-success"><?php echo htmlentities($price); ?></span></td>
-            <td> <a href="includes/payment.php?itemId=<?php echo htmlentities($itemId); ?>&remark=Not Paid by Cash"
-                    class="btn btn-outline-success btn-sm">Pay</a>
+            <td> <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success btn-sm"
+                    data-name="<?= $name ?>" data-price="<?= $price ?>" data-id=<?= $itemId ?>>Pay</button>
             </td>
         </tr>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirm Payment?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="payment-button">Pay with Khalti</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php } ?>
         <tr class="bg-light">
             <td colspan="3">
@@ -82,9 +103,59 @@ echo SuccessMessage();
                 ?>
                 Rs. <span class="text-success"><?php echo htmlentities($sum); ?></span>
             </td>
-            <td><a href="includes/payAll.php?cid=<?php echo htmlentities($cid); ?>&remark=Not Paid by Cash"
-                    class="btn btn-outline-success">Pay all</a></td>
+            <td>
+                <!-- <a href="includes/payAll.php?cid=<?php echo htmlentities($cid); ?>&remark=Not Paid by Cash"
+                    class="btn btn-outline-success" id="payment-button">Pay all</a> -->
+            </td>
         </tr>
     </tbody>
 </table>
 </div>
+
+<script src="https://khalti.com/static/khalti-checkout.js"></script>
+<script>
+var price = 0;
+var id = 0;
+var name = "";
+var url = "";
+$("#exampleModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    name = button.data("name");
+    price = button.data("price");
+    id = button.data("id");
+    url = `includes/payment.php?itemId=${id}&remark=Paid with Khalti`;
+
+    var modal = $(this);
+    modal.find('.modal-body').text(`Are you sure you want to pay for ${name}  of Rs.${price} ?`)
+});
+
+var config = {
+    // replace the publicKey with yours
+    "publicKey": "test_public_key_8414d9695e554fddbf38e127e247aa9c",
+    "productIdentity": "1233",
+    "productName": "adsads",
+    "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+    "eventHandler": {
+        onSuccess(payload) {
+            // hit merchant api for initiating verfication
+            console.log(payload);
+            location.replace(url);
+
+        },
+        onError(error) {
+            console.log(error);
+        },
+        onClose() {
+            console.log('widget is closing');
+        }
+    }
+};
+
+var checkout = new KhaltiCheckout(config);
+var btn = document.getElementById("payment-button");
+btn.onclick = function() {
+    checkout.show({
+        amount: price * 100
+    });
+}
+</script>

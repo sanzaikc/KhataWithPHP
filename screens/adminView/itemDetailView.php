@@ -1,7 +1,6 @@
 <?php
 $_SESSION['navlink'] = null;
 $cid = $_SESSION['customerId'];
-echo $cid;
 ?>
 <script>
 $(function() {
@@ -28,7 +27,7 @@ $(function() {
             <button class="btn btn-outline-success ml-2" tabindex="0" data-toggle="popover" data-trigger="focus"
                 data-placement="bottom" title="Recent transactions" data-html="true" data-content="
           <div class='list-group list-group-flush'>
-              <?php
+              <?php 
                 $sql = "SELECT * FROM `payment` WHERE `customerId` = '$cid' ORDER BY `paymentId` DESC LIMIT 0,5";
                 $result = $connection->query($sql);
                 $index = 0;
@@ -43,9 +42,9 @@ $(function() {
                         ?>
                         <div class='list-group-item flex-column align-items-start'>
                             <h6 class='mb-1'><?= $date ?></h6>
-                                <small>Paid for : <?= $itemName ?></small>
-                                <small>Amount : Rs.<?= $amount ?></small>
-                                <small> Remarks : <?= $remark ?></small>
+                                <small>Paid for : <?= $itemName ?></small></br>
+                                <small>Amount : Rs.<?= $amount ?></small></br>
+                                <small> Remarks : <?= $remark ?></small></br>
                         </div>
                 <?php }
                 } else {
